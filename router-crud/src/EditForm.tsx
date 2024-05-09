@@ -4,8 +4,8 @@ import RouteWrapper from "./routeWrapper";
 
 type Props = {
     url: string,
-    id:number,
-    navigate:Function
+    id: number,
+    navigate: Function
 }
 
 class EditForm extends React.Component<Props> {
@@ -13,6 +13,7 @@ class EditForm extends React.Component<Props> {
     state = {
         inputPostText: '',
     }
+
     async componentDidMount() {
         const text = await this.loadPost()
         this.setState({inputPostText: text.post.content})
@@ -35,7 +36,6 @@ class EditForm extends React.Component<Props> {
     async loadPost() {
         const response = await fetch(`${this.props.url}/posts/${this.props.id}`);
         const json = response.json()
-        console.log('json from server', json)
         return await json
     }
 
@@ -54,7 +54,7 @@ class EditForm extends React.Component<Props> {
             <form className="block d-flex flex-column gap-2" onSubmit={this.onFormSubmit.bind(this)} autoComplete="off">
                 <div className="d-flex justify-content-between">
                     <span className="editFormName">Edit form</span>
-                  <CloseButton type="button" onClick={()=>this.props.navigate(-1)}/>
+                    <CloseButton type="button" onClick={() => this.props.navigate(-1)}/>
                 </div>
                 <textarea className="w-100 block-shadow" name="content" value={this.state.inputPostText}
                           onChange={this.onChangeInput.bind(this)} maxLength={200} required/>

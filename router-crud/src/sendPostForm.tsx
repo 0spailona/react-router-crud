@@ -4,7 +4,7 @@ import RouteWrapper from "./routeWrapper";
 
 type Props = {
     url: string,
-    navigate:Function
+    navigate: Function
 }
 
 class SendPostForm extends React.Component<Props> {
@@ -17,11 +17,11 @@ class SendPostForm extends React.Component<Props> {
         e.preventDefault()
         const formdata = new FormData(e.currentTarget);
         const content = Object.fromEntries(formdata).content.toString()
-        console.log("onFormSubmit",1)
+
         if (!await this.postContent(content)) {
             return
         }
-        console.log("onFormSubmit",3)
+
         this.props.navigate("/")
     }
 
@@ -30,7 +30,7 @@ class SendPostForm extends React.Component<Props> {
     }
 
     async postContent(content: string) {
-        const response = await fetch(this.props.url + '/posts',
+        const response = await fetch(`${this.props.url}/posts`,
             {method: "POST", body: JSON.stringify({content})});
         if (response.status !== 204) {
             console.log("Error send new post", response.status)
@@ -42,7 +42,7 @@ class SendPostForm extends React.Component<Props> {
     render() {
         return (
             <form className="block d-flex flex-column gap-2" onSubmit={this.onFormSubmit.bind(this)} autoComplete="off">
-                <CloseButton className="align-self-end" type="button" onClick={()=>this.props.navigate("/")}/>
+                <CloseButton className="align-self-end" type="button" onClick={() => this.props.navigate("/")}/>
                 <textarea className="w-100 block-shadow" name="content" value={this.state.inputDateValue}
                           onChange={this.onChangeInput.bind(this)} maxLength={200} required/>
                 <Button className="align-self-end" variant="primary" type="submit">Send</Button>

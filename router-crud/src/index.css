@@ -11,11 +11,11 @@ textarea {
     background-color: #f8f8f8;
 }
 
-textarea:focus{
+textarea:focus {
     outline: none;
 }
 
-.block-shadow{
+.block-shadow {
     -webkit-box-shadow: 0 -5px 5px -5px rgba(34, 60, 80, 0.6) inset;
     -moz-box-shadow: 0 -5px 5px -5px rgba(34, 60, 80, 0.6) inset;
     box-shadow: 0 -5px 5px -5px rgba(34, 60, 80, 0.6) inset;
@@ -33,42 +33,42 @@ textarea:focus{
     height: fit-content;
 }
 
-.page{
-box-sizing: border-box;
-}
-
-.post{
+.page {
     box-sizing: border-box;
 }
 
-.avatar{
+.post {
+    box-sizing: border-box;
+}
+
+.avatar {
     height: 70px;
     width: 70px;
 }
 
-.userName{
+.userName {
     font-size: 1.5rem;
     font-weight: bold;
     color: darkblue;
 }
 
-.publicTime{
+.publicTime {
     font-size: 1rem;
     opacity: 0.7;
     font-weight: bolder;
 }
 
-.content{
+.content {
     font-size: 2.5rem;
     padding-bottom: 1rem;
     cursor: pointer;
 }
 
-.editBtns{
+.editBtns {
     width: 6rem;
 }
 
-.editFormName{
+.editFormName {
     font-size: 1.5rem;
     font-weight: bold;
     color: darkblue;

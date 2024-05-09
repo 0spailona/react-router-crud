@@ -28,7 +28,6 @@ export default function PostView({url}: Props) {
             })
     }
 
-
     useEffect(() => {
         fetch(`${url}/posts/${id}`)
             .then(response => response.json())
@@ -36,12 +35,12 @@ export default function PostView({url}: Props) {
     }, [id])
 
     return (
-            <Post created={post.created} content={post.content} id={post.id} closeBtnLink="/">
-                <div className="btnsWrp d-flex justify-content-end gap-2">
-                    <Button className="editBtns" variant="danger" onClick={() => toDelete()}>Delete</Button>
-                    <Button className="editBtns" variant="primary" onClick={() => navigate(`/put/${id}`)}>Edit</Button>
-                </div>
-            </Post>
+        <Post created={post.created} content={post.content} id={post.id} closeBtnLink="/">
+            <div className="btnsWrp d-flex justify-content-end gap-2">
+                <Button className="editBtns" variant="danger" onClick={() => toDelete()}>Delete</Button>
+                <Button className="editBtns" variant="primary" onClick={() => navigate(`/put/${id}`)}>Edit</Button>
+            </div>
+        </Post>
 
     )
 }

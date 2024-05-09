@@ -16,9 +16,8 @@ export default class Posts extends React.Component<Props> {
     }
 
     async loadPosts() {
-        const response = await fetch(this.props.url + '/posts');
+        const response = await fetch(`${this.props.url}/posts`);
         const json = response.json()
-        console.log('posts from server', json)
         return await json
     }
 
@@ -26,7 +25,8 @@ export default class Posts extends React.Component<Props> {
 
         return (
             <>
-                {this.state.posts.map(post => <Post key={post.id} id={post.id} created={post.created} content={post.content}/>)}
+                {this.state.posts.map(post => <Post key={post.id} id={post.id} created={post.created}
+                                                    content={post.content}/>)}
             </>
         );
     }
